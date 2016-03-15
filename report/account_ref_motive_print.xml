@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            id="report_account_ref_voucher_print"
+            name="account.ref.voucher.print"
+            model="account.voucher"
+            rml="account_ref_motive/report/account_ref_voucher_print.rml"
+            string="Reporte PDF"
+        />
+
+    </data>
+</openerp>
