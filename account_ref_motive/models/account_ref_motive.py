@@ -4,7 +4,7 @@ class account_ref_motive_voucher(osv.Model):
 	_inherit = 'account.voucher'
 
 	_columns ={
-		'reference': fields.many2one('account.voucher.motive', 'Ref. pago', help='Motivo del pago'),
+		'reference_id': fields.many2one('account.voucher.motive', 'Ref. pago', help='Motivo del pago'),
 	}
 
 class account_ref_motive(osv.Model):

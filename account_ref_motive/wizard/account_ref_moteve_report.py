@@ -17,13 +17,21 @@ class account_ref_motive_report(orm.TransientModel):
         'date_to': lambda *a: time.strftime('%Y-%m-%d'),
     }
 
+	def _get_model(self, cr, uid, ids):
+		if not hasattr(ids, '__iter__'): ids = [ids]
+		select = [wizard.type for wizard in self.browse(cr, uid, ids)]
+		if select == 'receipt': return 'account.third.check'
+		if select == 'receipt': return 'account.issued.check'
+
+
+
 	def check_report(self, cr, uid, ids, context=None):
 		if context is None:
 			context = {}
 		data = self.read(cr, uid, ids)[0]
 		datas = {
              'ids': context.get('active_ids',[]),
-             'model': 'account.voucher',
+             'model': _get_model(cr, uid, ids),
              'form': data
                  }
 		return {

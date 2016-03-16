@@ -11,7 +11,7 @@
     'version': '7.0',
     # any module necessary for this one to work correctly
     'depends': [
-        'base', 'account_voucher', 'account'
+        'base', 'account_voucher', 'account', 'l10n_ar_account_check_duo'
     ],
     # always loaded
     'data': [

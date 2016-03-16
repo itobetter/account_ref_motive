@@ -3,12 +3,19 @@
     <data>
 
         <report
-            id="report_account_ref_voucher_print"
-            name="account.ref.voucher.print"
-            model="account.voucher"
+            id="report_account_ref_issued_check"
+            name="report.account.ref.voucher.print"
+            model="account.third.check"
             rml="account_ref_motive/report/account_ref_voucher_print.rml"
             string="Reporte PDF"
         />
 
+        <report
+            id="report_account_ref_third_check"
+            name="report.account.ref.voucher.print"
+            model="account.issued.check"
+            rml="account_ref_motive/report/account_ref_voucher_print.rml"
+            string="Reporte PDF"
+        />
     </data>
 </openerp>
