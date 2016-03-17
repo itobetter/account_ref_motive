@@ -12,7 +12,7 @@ class account_ref_motive_report(orm.TransientModel):
             ('sale','Ventas'),
             ('purchase','Compras'),
             ('payment','Pagos'),
-            ('receipt','Recepciones'),])
+            ('receipt','Recepciones')]),
 		'partner_id': fields.many2one('res.partner', 'Empresa'),
 
 	}
