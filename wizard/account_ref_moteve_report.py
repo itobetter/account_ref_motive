@@ -8,7 +8,11 @@ class account_ref_motive_report(orm.TransientModel):
 	_columns = {
 		'date_from': fields.date('Desde', help='Fecha de comienzo para el reporte', required=True),
 		'date_to': fields.date('Hasta', help='Fecha de finalizacion para el reporte', required=True),
-		'type': fields.selection(_get_type, 'Tipo', help='Determina si es para pao de Proveedores o Clientes'),
+		'type':fields.selection([
+            ('sale','Ventas'),
+            ('purchase','Compras'),
+            ('payment','Pagos'),
+            ('receipt','Recepciones'),])
 		'partner_id': fields.many2one('res.partner', 'Empresa'),
 
 	}
@@ -20,8 +24,8 @@ class account_ref_motive_report(orm.TransientModel):
 	def _get_model(self, cr, uid, ids):
 		if not hasattr(ids, '__iter__'): ids = [ids]
 		select = [wizard.type for wizard in self.browse(cr, uid, ids)]
-		if 'receipt' in select : return 'account.voucher'
-		if 'receipt' not in select: return 'report.account.ref.voucher.print.out'
+		if 'purchase' or 'payment' in select : return 'report.account.ref.voucher.print.in'
+		if 'sale' or 'receipt' not in select: return 'report.account.ref.voucher.print.out'
 
 
 
@@ -29,6 +33,7 @@ class account_ref_motive_report(orm.TransientModel):
 		if context is None:
 			context = {}
 		data = self.read(cr, uid, ids)[0]
+		data['partner_id'] = data['partner_id'][0]
 		datas = {
              'ids': context.get('active_ids',[]),
              'model': 'account.voucher',
@@ -36,6 +41,6 @@ class account_ref_motive_report(orm.TransientModel):
                  }
 		return {
             'type': 'ir.actions.report.xml',
-            'report_name': 'account.ref.voucher.print.out',
+            'report_name': self._get_model(cr, uid, ids),
             'datas': datas,
             }

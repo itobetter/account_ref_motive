@@ -11,7 +11,7 @@
     'version': '7.0',
     # any module necessary for this one to work correctly
     'depends': [
-        'base', 'account_voucher', 'account', 'l10n_ar_account_check_duo'
+        'base', 'account_voucher', 'account',
     ],
     # always loaded
     'data': [
@@ -19,7 +19,6 @@
         'report/account_ref_motive_print.xml',
         'views/motive_account_views.xml',
     ],
+
     # only loaded in test
-    'test': [
-    ],
 }
