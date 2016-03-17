@@ -4,16 +4,16 @@
     <report id="report_account_ref_out_check"
             string="imprimir flujo de caja saliente"
             model="account.voucher"
-            name="report.account.ref.voucher.print.in"
-            rml="account_ref_motive/report/account_ref_voucher_print.rml"
+            name="account.ref.voucher.print.in"
+            rml="account_ref_motive/report/account_ref_voucher_in_print.rml"
             multi="True"
             auto="False"/>
 
     <report id="report_account_ref_in_check"
             string="imprimir flujo de caja entrante"
             model="account.voucher"
-            name="report.account.ref.voucher.print.out"
-            rml="account_ref_motive/report/account_ref_voucher_print.rml"
+            name="account.ref.voucher.print.out"
+            rml="account_ref_motive/report/account_ref_voucher_out_print.rml"
             multi="True"
             auto="False"/>
 
