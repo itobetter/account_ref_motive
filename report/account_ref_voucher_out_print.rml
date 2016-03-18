@@ -14,9 +14,20 @@
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
       <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="0,0" stop="0,-1"/>
-      <lineStyle kind="LINEAFTER" colorName="#dddddd" start="0,0" stop="0,-1"/>
-      <lineStyle kind="LINEABOVE" colorName="#dddddd" start="0,0" stop="0,0"/>
       <lineStyle kind="LINEBELOW" colorName="#dddddd" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="5,0" stop="5,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="5,-1" stop="5,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#dddddd" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="6,-1" stop="6,-1"/>
       <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="0,1" stop="0,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#dddddd" start="0,-1" stop="0,-1"/>
       <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="1,1" stop="1,-1"/>
@@ -32,21 +43,6 @@
       <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="6,1" stop="6,-1"/>
       <lineStyle kind="LINEAFTER" colorName="#dddddd" start="6,1" stop="6,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#dddddd" start="6,-1" stop="6,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="0,2" stop="0,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="0,-1" stop="0,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="1,2" stop="1,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="1,-1" stop="1,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="2,2" stop="2,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="2,-1" stop="2,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="3,2" stop="3,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="3,-1" stop="3,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="4,2" stop="4,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="4,-1" stop="4,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="5,2" stop="5,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="5,-1" stop="5,-1"/>
-      <lineStyle kind="LINEBEFORE" colorName="#dddddd" start="6,2" stop="6,-1"/>
-      <lineStyle kind="LINEAFTER" colorName="#dddddd" start="6,2" stop="6,-1"/>
-      <lineStyle kind="LINEBELOW" colorName="#dddddd" start="6,-1" stop="6,-1"/>
     </blockTableStyle>
     <initialize>
       <paraStyle name="all" alignment="justify"/>
@@ -55,7 +51,6 @@
     <paraStyle name="P2" rightIndent="-1.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P3" rightIndent="-1.0" leftIndent="0.0" fontName="Helvetica" fontSize="6.0" leading="8" alignment="LEFT"/>
     <paraStyle name="P4" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -71,15 +66,7 @@
   </stylesheet>
   <story>
     <para style="P4">[[ repeatIn(objects,'o') ]]</para>
-    <para style="P5">[[ _get_filter(self, o, data)]]</para>
     <blockTable colWidths="70.0,87.0,71.0,109.0,101.0,58.0,72.0" style="Table1">
-      <tr>
-        <td>
-          <para style="P2">
-            <font color="white"> </font>
-          </para>
-        </td>
-      </tr>
       <tr>
         <td>
           <para style="P1">Fecha</para>
@@ -119,7 +106,7 @@
           <para style="P3">[[ o.egress_number or '' ]]</para>
         </td>
         <td>
-          <para style="P3">[[ o.reference ]]: [[<font face="Helvetica">number_check</font></para>
+          <para style="P3">[[ o.reference ]]: [[o.<font face="Helvetica">number_check</font></para>
           <para style="P3">]]</para>
         </td>
         <td>

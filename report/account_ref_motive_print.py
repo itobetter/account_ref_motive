@@ -227,21 +227,21 @@ class report_print_ref(report_sxw.rml_parse):
 
         })
 
-    def set_context(self, objects, data, ids, report_type=None):
-        return super(journal_print, self).set_context(objects, data, ids, report_type=report_type)
-
     def strToDate(dt):
         if dt:
             dt_date=datetime.date(int(dt[0:4]),int(dt[5:7]),int(dt[8:10]))
             return dt_date
         else:
             return
-    def _get_filter(self, voucher, data):
-        filter_voucher = filter(lambda l: self.strToDate(l.date) > self.strToDate(datas['form']['date_from']) and self.strToDate(l.date) < self.strToDate(datas['form']['date_to']), voucher)
-        if datas['form']['type']:
-            filter_voucher = filter(lambda l: l.type == datas['type'], filter_voucher)
-        if datas['form']['partner_id']:
-            filter_voucher = filter(lambda l: l.partner.id == datas['partner_id'], filter_voucher)
+    def _get_filter(self, voucher, datas=None):
+        if datas == None: datas = {}
+        filter_voucher = voucher
+        if datas.get('form', False):
+            filter_voucher = filter(lambda l: self.strToDate(l.date) > self.strToDate(datas['form']['date_from']) and self.strToDate(l.date) < self.strToDate(datas['form']['date_to']), voucher)
+            if datas['form'].get('type', False):
+                filter_voucher = filter(lambda l: l.type == datas['type'], filter_voucher)
+            if datas['form'].get('partner_id', False):
+                filter_voucher = filter(lambda l: l.partner.id == datas['partner_id'], filter_voucher)
 
         return filter_voucher
 

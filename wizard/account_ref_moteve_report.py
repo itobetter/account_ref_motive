@@ -24,8 +24,8 @@ class account_ref_motive_report(orm.TransientModel):
 	def _get_model(self, cr, uid, ids):
 		if not hasattr(ids, '__iter__'): ids = [ids]
 		select = [wizard.type for wizard in self.browse(cr, uid, ids)]
-		if 'purchase' or 'payment' in select : return 'report.account.ref.voucher.print.in'
-		if 'sale' or 'receipt' not in select: return 'report.account.ref.voucher.print.out'
+		if 'purchase' or 'payment' in select : return 'account.ref.voucher.print.in'
+		if 'sale' or 'receipt' in select: return 'account.ref.voucher.print.out'
 
 
 
@@ -33,7 +33,7 @@ class account_ref_motive_report(orm.TransientModel):
 		if context is None:
 			context = {}
 		data = self.read(cr, uid, ids)[0]
-		data['partner_id'] = data['partner_id'][0]
+		if data['partner_id']: data['partner_id'] = data['partner_id'][0]
 		datas = {
              'ids': context.get('active_ids',[]),
              'model': 'account.voucher',
@@ -41,6 +41,7 @@ class account_ref_motive_report(orm.TransientModel):
                  }
 		return {
             'type': 'ir.actions.report.xml',
-            'report_name': self._get_model(cr, uid, ids),
+            #'report_name': self._get_model(cr, uid, ids),
+			'report_name': 'account.ref.voucher.print.in',
             'datas': datas,
             }
