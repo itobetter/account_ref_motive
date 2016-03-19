@@ -41,7 +41,7 @@ class account_ref_motive_report(orm.TransientModel):
                  }
 		return {
             'type': 'ir.actions.report.xml',
-            #'report_name': self._get_model(cr, uid, ids),
-			'report_name': 'account.ref.voucher.print.in',
+            'report_name': self._get_model(cr, uid, ids),
+
             'datas': datas,
             }

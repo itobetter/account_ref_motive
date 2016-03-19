@@ -49,10 +49,11 @@
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
-    <paraStyle name="P1" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P2" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P3" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="CENTER"/>
-    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER"/>
+    <paraStyle name="P1" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="CENTER"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER"/>
+    <paraStyle name="P3" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P5" rightIndent="-38.0" leftIndent="-34.0" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -67,47 +68,53 @@
     <images/>
   </stylesheet>
   <story>
-    <para style="P2"><font color="white"> .........</font>[[repeatIn(objects,'o')]]</para>
+    <para style="P4"><font color="white"> .........</font>[[ repeatIn(get_filter(objects), 'o') ]]</para>
+    <para style="P5">
+      <font face="Helvetica" size="8.0"/>
+    </para>
     <blockTable colWidths="83.0,83.0,83.0,83.0,83.0,83.0" style="Table1">
       <tr>
         <td>
-          <para style="P3">Fecha </para>
+          <para style="P1">Fecha </para>
         </td>
         <td>
-          <para style="P3">Banco</para>
+          <para style="P1">Banco</para>
         </td>
         <td>
-          <para style="P3">Numero de deposito/</para>
-          <para style="P3">Nota de credito</para>
+          <para style="P1">Numero de deposito/</para>
+          <para style="P1">Nota de credito</para>
         </td>
         <td>
-          <para style="P3">Cliente</para>
+          <para style="P1">Cliente</para>
         </td>
         <td>
-          <para style="P3">Valor</para>
+          <para style="P1">Valor</para>
         </td>
         <td>
-          <para style="P3">Linea de negocio</para>
+          <para style="P1">Linea de negocio</para>
         </td>
       </tr>
       <tr>
         <td>
-          <para style="P1">[[ o.date or '' ]]</para>
+          <para style="P3">
+            <font color="white"> .........</font>
+            <font face="Helvetica" size="8.0">[[ o.date or ' ' ]]</font>
+          </para>
         </td>
         <td>
-          <para style="P4">[[o.journal_id.name]]</para>
+          <para style="P2">[[o.journal_id.name]]</para>
         </td>
         <td>
-          <para style="P4">[[o.deposit_number]]</para>
+          <para style="P2">[[o.deposit_number]]</para>
         </td>
         <td>
-          <para style="P4">[[o.partner_id.name]]</para>
+          <para style="P2">[[o.partner_id.name]]</para>
         </td>
         <td>
-          <para style="P4">[[o.amount]]</para>
+          <para style="P2">[[o.amount]]</para>
         </td>
         <td>
-          <para style="P4">[[o.category_id.name]]</para>
+          <para style="P2">[[o.category_id.name]]</para>
         </td>
       </tr>
     </blockTable>
